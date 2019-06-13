@@ -5,7 +5,8 @@ pipeline {
             args '-p 3000:3000'
         }
     }
-    stage('Build') {
+    stages {
+        stage('Build') {
             steps {
                 sh "npm install"
             }
