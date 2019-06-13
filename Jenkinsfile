@@ -1,14 +1,13 @@
 pipeline {
-    agent { label "build" }
-    stages {
-        stage('checkout') {
-            steps {
-                checkout scm
-            }
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
         }
-        stage('Build') {
+    }
+    stage('Build') {
             steps {
-                sh "this is for test demo"
+                sh "npm install"
             }
         }
     }
